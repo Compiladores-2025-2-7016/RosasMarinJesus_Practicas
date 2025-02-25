@@ -1,0 +1,13 @@
+0xF1
+0XAAF9
+x
+import
+if
+else
+return
+$identificador
+_variable
+var1
+hola$
+25
+hola y adios
