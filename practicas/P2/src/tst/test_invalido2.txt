@@ -1,0 +1,6 @@
+float esIgual a (10 mas 5.2) mas 3.2.3;
+
+Boolean __var esIgual a verdadero;
+
+if (var) 
+    __var esIgual a falso;
