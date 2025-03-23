@@ -11,6 +11,7 @@ Se intalara PLY.
 Dentro de la carpeta src se encuentran dos carpetas, estas son:
 
 - **main:** Dentro de esta carpeta encontraremos:
+
   - **carpeta componente:** Contiene los archivos:
 
     - clase_lexica.py: Enumeración que representa las clases léxicas de los componentes léxicos (tokens).
@@ -19,9 +20,11 @@ Dentro de la carpeta src se encuentran dos carpetas, estas son:
 
   - **carpeta lexer:** Contiene el archivo:
     - scanner.py: Analizador léxico para el lenguaje.
+
 - **tst:** Dentro de esta carpeta estaran nuestros tests que son:
 
   - input.txt: Este es el test prdeterminado que viene con la asignación de esta practica dandonos como resultado la salida buscada:
+
     ![alt text](images/image_input.png)
 
   Notemos que produce una salida que no guarda lexemas que son los únicos miembros de su clase léxica.
@@ -89,7 +92,9 @@ Dentro de la carpeta src se encuentran dos carpetas, estas son:
     > \_\_var esIgual a falso;
 
     Veamos la salida:
+    
     ![alt text](images/image_invalido2.png)
+
     Veamos que una de las razones por las que este test es invalido es porque le pasamos un numero invalido como **3.2.3**, esto hace que tome el numero **3.2** y despues desconozca el punto siguiente ya uq eno es valido, de esta manera tenemos un caso invalido distinto al caso 1.
 
 ## Extras
@@ -106,7 +111,6 @@ El codigo de cada script esta documentado con las convenciones de Python.
 
 Los archivos de prueba propuestos estan en la carpeta tst\ junto con el archivo input.txt.
 
-
 ### Como ejecutar
 
 Por ultimo, la manera de ejecutar el programa es como se solicita en la practica:
@@ -118,5 +122,5 @@ python [direccion donde esta el main] [dirección donde esta el test]
 por ejemplo, si estas ubicado en el directorio src/, podrias hacer:
 
 ```bash
-python .\main\main.py .\tst\input.txt  
+python .\main\main.py .\tst\input.txt
 ```
