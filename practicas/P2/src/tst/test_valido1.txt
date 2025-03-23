@@ -1,0 +1,8 @@
+int variable esIgual a 5;
+
+float variable2 esIgual a 1.2e6;
+
+if (variable esIgual a 5)
+    testValido
+else
+    testNoValido

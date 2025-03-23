@@ -1,0 +1,7 @@
+# Comentario de python
+
+int var;
+
+if (var != 10) {
+    var = 0;
+}
