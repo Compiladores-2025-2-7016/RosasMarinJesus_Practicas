@@ -30,6 +30,6 @@ class ComponenteLexico(): # también llamado token
         str: Representación en cadena del componente léxico.
         """
         if self.lexema is None: # Si no  tiene lexema
-            return f"{self.clase.name}"
+            return f"<{self.clase.name}>"
         else:
-            return f"{self.clase.name}({self.lexema})"
+            return f"<{self.clase.name}, {self.lexema}>"
