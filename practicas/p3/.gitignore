@@ -1,0 +1,4 @@
+# Entorno virtual
+entorno/
+*.pyc
+__pycache__/
