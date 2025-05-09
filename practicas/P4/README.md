@@ -297,3 +297,49 @@ S' → + num S' | ε
       ![alt text](images/invalido2.png)
 
       Ya que la producción SPRIM → PLUS NUMERO SPRIM queda incompleta
+
+15. Modificar la búsqueda de símbolos (get_sim) en la clase Gramatica para hacerla más eficiente en tiempo. Es válido cambiar la implementación de la clase o de la práctica en general para lograrlo.
+
+     get_sim usaba una busqueda lineal para encontrar el simbolo deseado, ahora usamos un diccionarion para buscar el simbolo deseado en O(1).
+
+     veamos los cambios en el archivo gramatica.py:
+
+     ```python
+     class Gramatica:
+    def __init__(self):
+        self.simbolos: List[Simbolo] = []
+        self.producciones: List[Produccion] = []
+        self.simbolos_dict: Dict[Enum, Simbolo] = {}  # NUEVO: para acceso rápido
+
+    def add_sim(self, simbolo: Simbolo):
+        if simbolo.sim not in self.simbolos_dict:  # NUEVO: para acceso rápido
+            self.simbolos.append(simbolo)
+            self.simbolos_dict[simbolo.sim] = simbolo
+
+    def add_prod(self, produccion: Produccion):
+        self.producciones.append(produccion)
+
+    def get_sim(self, clave: Enum) -> Simbolo:  # NUEVO
+        if clave in self.simbolos_dict: # buscar en el diccionario
+            return self.simbolos_dict[clave]
+        raise Exception(f"No existe un símbolo en la gramática con ese valor: {clave}")
+
+    def get_prod(self, idx: int) -> Produccion:
+        return self.producciones[idx]
+     ```
+
+     Tambien cambiamos en el archivo sintactico.py, principalmente la función load_syms() para que en lugar de usar lista.extend() usemos add_sim():
+
+     ```python
+     # No Terminales
+        self.gramatica.add_sim(Simbolo(NoTerminal.S, Simbolo.SimTipo.NO_TERMINAL))
+        self.gramatica.add_sim(Simbolo(NoTerminal.SPRIM, Simbolo.SimTipo.NO_TERMINAL))
+        self.gramatica.add_sim(Simbolo(NoTerminal.EPSILON, Simbolo.SimTipo.NO_TERMINAL))
+
+        # Terminales
+        self.gramatica.add_sim(Simbolo(ClaseLexica.NUMERO, Simbolo.SimTipo.TERMINAL))
+        self.gramatica.add_sim(Simbolo(ClaseLexica.PLUS, Simbolo.SimTipo.TERMINAL))
+        self.gramatica.add_sim(Simbolo(ClaseLexica.EOF, Simbolo.SimTipo.TERMINAL))
+     ```
+
+     Esta solución es mas optima que la anterior y nos devuelve el mismo resultado.

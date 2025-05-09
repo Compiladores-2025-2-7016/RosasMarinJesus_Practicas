@@ -49,19 +49,33 @@ class ParserLL:
 
         # No Terminales (incluímos epsilon porque en la tabla es un miembro de coordenada)
         # epsilon = Simbolo(NoTerminal.EPSILON, Simbolo.SimTipo.NO_TERMINAL)
+
+        # Solucion no optima, pero funcional
+
         # No Terminales
-        self.gramatica.simbolos.extend([
-            Simbolo(NoTerminal.S, Simbolo.SimTipo.NO_TERMINAL),
-            Simbolo(NoTerminal.SPRIM, Simbolo.SimTipo.NO_TERMINAL),
-            Simbolo(NoTerminal.EPSILON, Simbolo.SimTipo.NO_TERMINAL),
-        ])
+        #self.gramatica.simbolos.extend([
+        #    Simbolo(NoTerminal.S, Simbolo.SimTipo.NO_TERMINAL),
+        #    Simbolo(NoTerminal.SPRIM, Simbolo.SimTipo.NO_TERMINAL),
+        #    Simbolo(NoTerminal.EPSILON, Simbolo.SimTipo.NO_TERMINAL),
+        #])
 
         # Terminales
-        self.gramatica.simbolos.extend([
-            Simbolo(ClaseLexica.NUMERO, Simbolo.SimTipo.TERMINAL),
-            Simbolo(ClaseLexica.PLUS, Simbolo.SimTipo.TERMINAL),
-            Simbolo(ClaseLexica.EOF, Simbolo.SimTipo.TERMINAL),
-        ])
+        #self.gramatica.simbolos.extend([
+        #    Simbolo(ClaseLexica.NUMERO, Simbolo.SimTipo.TERMINAL),
+        #    Simbolo(ClaseLexica.PLUS, Simbolo.SimTipo.TERMINAL),
+        #    Simbolo(ClaseLexica.EOF, Simbolo.SimTipo.TERMINAL),
+        #])
+
+        # Solucion optima usando un diccionario
+        # No Terminales
+        self.gramatica.add_sim(Simbolo(NoTerminal.S, Simbolo.SimTipo.NO_TERMINAL))
+        self.gramatica.add_sim(Simbolo(NoTerminal.SPRIM, Simbolo.SimTipo.NO_TERMINAL))
+        self.gramatica.add_sim(Simbolo(NoTerminal.EPSILON, Simbolo.SimTipo.NO_TERMINAL))
+
+        # Terminales
+        self.gramatica.add_sim(Simbolo(ClaseLexica.NUMERO, Simbolo.SimTipo.TERMINAL))
+        self.gramatica.add_sim(Simbolo(ClaseLexica.PLUS, Simbolo.SimTipo.TERMINAL))
+        self.gramatica.add_sim(Simbolo(ClaseLexica.EOF, Simbolo.SimTipo.TERMINAL))
 
     def load_prods(self):
         """
