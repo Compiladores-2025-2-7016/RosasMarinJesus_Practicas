@@ -16,7 +16,7 @@ class Gramatica:
 
     def get_sim(self, valor: int) -> Simbolo:
         for simbolo in self.simbolos:
-            if simbolo.sim.value == valor:
+            if simbolo.sim == valor:
                 return simbolo
         raise Exception("No existe un símbolo en la gramática con ese valor")
     

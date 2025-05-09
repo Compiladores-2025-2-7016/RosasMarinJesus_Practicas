@@ -1,6 +1,9 @@
-from enum import Enum
+from enum import Enum, auto
 
 class ClaseLexica(Enum): #Estos serán miembro de alguna coordenada en la tabla LL(1)
+    """
+    Enumeración de las clases léxicas.
+    """
     EOF = 0
     ESPACIO = 5
     # TODO: agregar las clases léxicas restantes
@@ -9,7 +12,10 @@ class ClaseLexica(Enum): #Estos serán miembro de alguna coordenada en la tabla 
 
 
 class NoTerminal(Enum): #Estos serán miembro de alguna coordenada en la tabla LL(1)
-    epsilon = ''
+    """
+    Enumeración de los no terminales de la gramática.
+    """
+    EPSILON = auto()
     # TODO: agregar los no terminales restantes
-    s = "s"
-    sprim = "sprim"
+    S = auto()
+    SPRIM = auto()

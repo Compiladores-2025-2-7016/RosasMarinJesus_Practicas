@@ -24,7 +24,27 @@ class Lexer(object):
     #@TOKEN(numero)
     @TOKEN(r'(' + digito + r')+')
     def t_NUMERO(self, t):
+        """
+        Regla para reconocer un número.
+        :param t: Token que contiene el número reconocido.
+        :return: Token con el número reconocido.
+        """
+
+        t.type = 'NUMERO'
         print("Encontré un número:", t.value)
+        return t
+
+    @TOKEN(r'\+')
+    def t_PLUS(self, t):
+        """
+        Regla para reconocer el símbolo de suma.
+        :param t: Token que contiene el símbolo de suma reconocido.
+        :return: Token con el símbolo de suma reconocido.
+        """
+        
+        t.type = 'PLUS'
+        t.value = '+'  # opcional
+        print("Encontré un símbolo de suma:", t.value)
         return t
 
 
