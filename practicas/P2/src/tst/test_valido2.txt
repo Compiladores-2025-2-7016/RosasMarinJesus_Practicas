@@ -1,0 +1,12 @@
+
+int x;
+x esIgual a 0;
+
+while (x menorQue 100)
+    x masIgual 1;
+    print(x);
+
+if (x esIgual a 100)
+    testValido
+else
+    testNoValido
